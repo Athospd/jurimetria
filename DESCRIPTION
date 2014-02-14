@@ -5,5 +5,11 @@ Version: 0.1
 Author: Julio Trecenti <jtrecenti@ime.usp.br>
 Maintainer: Julio Trecenti <jtrecenti@ime.usp.br>
 License: MIT
-Imports: stringr, XML, httr
-Depends: stringr, XML, httr
+Imports:
+    stringr,
+    XML,
+    httr
+Depends:
+    stringr,
+    XML,
+    httr
