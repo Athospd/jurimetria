@@ -1,1 +1,2 @@
 export(funcao)
+export(pega_metadados_tjsp)
