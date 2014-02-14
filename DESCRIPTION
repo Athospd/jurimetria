@@ -1,0 +1,7 @@
+Package: jurimetria
+Title: Tools for extracting, munging and visualizing jurimetric data
+Description: 
+Version: 0.1
+Author: Julio Trecenti <jtrecenti@ime.usp.br>
+Maintainer: Julio Trecenti <jtrecenti@ime.usp.br>
+License: MIT
