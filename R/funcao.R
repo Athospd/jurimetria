@@ -1,6 +1,6 @@
 #' Retorna x + 1.
 #' 
-#' Uma descrição mais detalhada sobre a função
+#' Uma descricao mais detalhada sobre a funcao
 #' @export
 funcao <- function(x) {
   return(x+1)

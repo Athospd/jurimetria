@@ -5,6 +5,6 @@
 funcao(x)
 }
 \description{
-Uma descrição mais detalhada sobre a função
+Uma descricao mais detalhada sobre a funcao
 }
 
