@@ -30,10 +30,11 @@ pega_metadados_tjsp <- function(p) {
     k <- F
   }
   if(!k) cat('\n')
-  html <- htmlParse(content(r, as='text'),encoding='UTF-8')
+  html <- htmlParse(content(r, as='text'), encoding='UTF-8')
   
-  vet_dados <- sapply(getNodeSet(html, "//table[@id != 'secaoFormConsulta' and (@class='secaoFormBody' or @id='tablePartesPrincipais')]//tr//td"),xmlValue)
-  vet_dados <- str_trim(gsub(' +',' ',gsub('[\n\t\r]','',vet_dados)))
+  xpath <- "//table[@id != 'secaoFormConsulta' and (@class='secaoFormBody' or @id='tablePartesPrincipais')]//tr//td"
+  vet_dados <- sapply(getNodeSet(html, xpath), xmlValue)
+  vet_dados <- str_trim(gsub(' +', ' ', gsub('[\n\t\r]', '', vet_dados)))
   vet_dados <- vet_dados[!duplicated(vet_dados,incomparables="")]
   # print(vet_dados)
   df_dados <- data.frame(key=str_trim(gsub(' +',' ',gsub('[\n\t\r]','',vet_dados[1:length(vet_dados) %% 2 == 1]))),
