@@ -9,11 +9,9 @@ Imports:
     stringr,
     XML,
     httr,
-    plyr,
-    dplyr
+    plyr
 Depends:
     stringr,
     XML,
     httr,
     plyr
-    dplyr
