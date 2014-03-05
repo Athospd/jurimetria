@@ -75,7 +75,6 @@ parse_node <- function(node) {
 }
 
 
-View(cjpg)
 
 # bug <- c(-1)
 # inicio do download realizado em 2014-02-28 8:17
