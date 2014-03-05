@@ -8,8 +8,12 @@ License: MIT
 Imports:
     stringr,
     XML,
-    httr
+    httr,
+    plyr,
+    dplyr
 Depends:
     stringr,
     XML,
-    httr
+    httr,
+    plyr
+    dplyr

@@ -74,6 +74,9 @@ parse_node <- function(node) {
   df
 }
 
+
+View(cjpg)
+
 # bug <- c(-1)
 # inicio do download realizado em 2014-02-28 8:17
 # aux <- crawler_cjpg(pag=1, datas=c('','27/02/2014'))
