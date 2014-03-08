@@ -1,29 +1,29 @@
-#' Retorna data.frames com metadados do Justiça Aberta.
+#' Retorna data.frames com metadados do Justica Aberta.
 #' 
-#' Essa função retorna metadados úteis para a pesquisa jurimétrica através do sistema 
-#' Justiça Aberta. Dependendo do tipo ("muni", "vara", "prod"), retorna um nível diferente de 
-#' metadados. Os parâmetros e cod_muni, cod_vara ajudam a determinar quais municípios, 
-#' produtividades ou varas serão retornados. Se forem nulos (padrão), a função baixará da internet
-#' todos os metadados. Tome cuidado pois essa função pode demorar um tempo considerável para
-#' rodar, pois acessa muitas páginas da internet (27 requisições para baixar os municípios;
-#' ~5591 requisições para baixar as varas estaduais, e ~10000 requisições para baixar as 
-#' produtividades). Para obter as produtividades a partir de um dado código de produtividade, 
-#' considere a função crawler_prod_ja().
+#' Essa funcao retorna metadados uteis para a pesquisa jurimetrica atraves do sistema 
+#' Justica Aberta. Dependendo do tipo ("muni", "vara", "prod"), retorna um nivel diferente de 
+#' metadados. Os parametros ufs,  cod_muni e cod_vara ajudam a determinar quais municípios, 
+#' produtividades ou varas serao retornados. Se forem nulos (padrao), a funcao baixara da internet
+#' todos os metadados. Tome cuidado pois essa funcao pode demorar um tempo consideravel para
+#' rodar, pois acessa muitas paginas da internet (27 requisicoes para baixar os municipios;
+#' ~5591 requisicoes para baixar as varas estaduais, e ~10000 requisicoes para baixar as 
+#' produtividades). Para obter as produtividades a partir de um dado codigo de produtividade, 
+#' considere a funcao crawler_prod_ja().
 #' 
 #' @export
 crawler_metadata_ja <- function(tipo, ufs=NULL, cod_muni=NULL, cod_vara=NULL, instancia=1, justica=1) {
   if(instancia == 1) {
     if(tipo == 'muni') {
       if(is.null(ufs)) {
-        cat('preciso de uma lista de ufs...\n')
-        return()
+        ufs <- c('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+                 'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')
       }
       return(meta_muni(ufs))
     } else if(tipo == 'vara') {
       if(is.null(cod_muni)) {
         if(is.null(ufs)) {
-          cat('preciso de uma lista de ufs pois sua lista de municipios está vazia...\n')
-          return()
+          ufs <- c('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+                   'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')
         }
         cod_muni <- meta_muni(ufs)$cod_muni
       }
@@ -32,8 +32,8 @@ crawler_metadata_ja <- function(tipo, ufs=NULL, cod_muni=NULL, cod_vara=NULL, in
       if(is.null(cod_vara)) {
         if(is.null(cod_muni)) {
           if(is.null(ufs)) {
-            cat('preciso de uma lista de ufs pois suas listas de varas e municipios está vazia...\n')
-            return()
+            ufs <- c('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+                     'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')
           } else {
             cod_muni <- meta_muni(ufs)$cod_muni
             cod_vara <- meta_vara(cod_muni, justica)$cod_vara
@@ -44,14 +44,14 @@ crawler_metadata_ja <- function(tipo, ufs=NULL, cod_muni=NULL, cod_vara=NULL, in
       }
       return(meta_prod(cod_vara))
     } else {
-      cat(paste0('tipo de informação não suportado: ', tipo, '.\n'))
+      cat(paste0('tipo de informacao nao suportado: ', tipo, '.\n'))
       return()
     }
   } else if(instancia == 2) {
     cat('not supported yet :(\n')
     return()
   } else {
-    cat(paste0('não existe esse tipo de instância: ', instancia, '.\n'))
+    cat(paste0('nao existe esse tipo de instancia: ', instancia, '.\n'))
     return()
   }
 }
