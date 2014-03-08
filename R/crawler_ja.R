@@ -15,15 +15,15 @@ crawler_metadata_ja <- function(tipo, ufs=NULL, cod_muni=NULL, cod_vara=NULL, in
   if(instancia == 1) {
     if(tipo == 'muni') {
       if(is.null(ufs)) {
-        cat('preciso de uma lista de ufs...\n')
-        return()
+        ufs <- c('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+                 'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')
       }
       return(meta_muni(ufs))
     } else if(tipo == 'vara') {
       if(is.null(cod_muni)) {
         if(is.null(ufs)) {
-          cat('preciso de uma lista de ufs pois sua lista de municipios está vazia...\n')
-          return()
+          ufs <- c('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+                   'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')
         }
         cod_muni <- meta_muni(ufs)$cod_muni
       }
@@ -32,8 +32,8 @@ crawler_metadata_ja <- function(tipo, ufs=NULL, cod_muni=NULL, cod_vara=NULL, in
       if(is.null(cod_vara)) {
         if(is.null(cod_muni)) {
           if(is.null(ufs)) {
-            cat('preciso de uma lista de ufs pois suas listas de varas e municipios está vazia...\n')
-            return()
+            ufs <- c('AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG',
+                     'PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO')
           } else {
             cod_muni <- meta_muni(ufs)$cod_muni
             cod_vara <- meta_vara(cod_muni, justica)$cod_vara
