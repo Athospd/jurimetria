@@ -1,3 +1,4 @@
-export(crawler_cjpg)
+export(bug)
+export(crawler_metadata_ja)
 export(funcao)
 export(pega_metadados_tjsp)
