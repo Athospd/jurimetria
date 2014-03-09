@@ -1,4 +1,5 @@
 export(bug)
 export(crawler_metadata_ja)
+export(crawler_prod_ja)
 export(funcao)
 export(pega_metadados_tjsp)
