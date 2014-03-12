@@ -1,4 +1,4 @@
-export(bug)
+export(crawler_cjpg)
 export(crawler_metadata_ja)
 export(crawler_prod_ja)
 export(funcao)

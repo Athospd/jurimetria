@@ -4,7 +4,6 @@
 #' informações que o TJSP precisa para retornar as informações.
 #' 
 #' @export
-bug <- c()
 crawler_cjpg <- function(livre='', classes='', assuntos='', magistrados='', datas=c('',''), varas='', pag=0, r=NULL) {
   if(is.null(r)) {
     query <- list(
